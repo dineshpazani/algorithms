@@ -1,0 +1,8 @@
+
+
+SOLID Design principle:
+
+S - Single responsibility principle 
+O - Open and Close principle -> Open for extendtion and close for modification
+		1. Strategy design pattern
+		2. Template design pattern

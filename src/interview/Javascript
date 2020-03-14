@@ -1,0 +1,217 @@
+
+#JavaScript : Interpreted, Typed languages.
+
+#Data types:
+#Primitive
+undefined
+null
+Boolean
+String
+Symbol
+Number
+Object
+
+#Prototype:
+All JavaScript objects inherit properties and methods from a prototype.
+
+
+#Object Types:
+
+#Creating Constructor or new Keyword:
+var emp = {
+name : "",
+age: 23
+}
+
+#Array:
+var x = [];
+var y = [1, 2 , 3];
+
+pop() - return last element and remove it
+push() - add oe or more element at end of array and it will return 
+shift() - remove the item at begining of the array
+unshift() - add the item at begining of the array
+reverse() - it reverse the order of the element of an array.
+
+#empty a array
+arrayList = []
+arrayList.length = 0;
+arrayList.pop; iterate untill zero.
+
+#Name functions:
+function named(){ }
+every function is bind and apply methiod.
+
+ #Scope of variable:
+ globale varibale
+ Local variable 
+ 
+ #this:
+ this is current context
+ it is goble varible in function 
+ it is undefined in strickt mode
+ 
+ #Call Back:
+ 
+ 
+ #Closure:
+ A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) .
+ 
+ #Higher order function:
+ it can be pass function as arrguments and return as function or value.
+ 
+ #Attributes and Propperty
+ id, type, value
+ type="text", value = "Name".
+ 
+ #Local Storage:
+ it long untill clear browser
+ 
+ #Session storage:
+ if browser closed it will clear
+ 
+ #== and ===
+ ==  value. 
+ === value and type
+ 
+ #null & undefined:
+ null is object
+ undefined type
+ 
+ #undeclared and undefined
+ undeclared is variable is not declared
+ undefined is value is not assigned
+ 
+ #window and documents
+ window is gobal object which hold variables, functions, history, locations.
+ Documents is under window, it is property of window
+ 
+ #innerHTML and innerText:
+ 
+ 
+ #Event Bubbling:
+ child to parent communications
+ 
+ #NaN: 
+ Not a number
+ 
+ #import and export
+ import is import from file 
+ export is export to another fille
+ 
+ #Strict Mode:
+ error checking into your code
+ use strickt
+ 
+ #prompt box:
+ ok, cancel
+ 
+ # call and apply and bind:
+ call - it call call() and arguments provided individually
+ apply - it call apply methiod wiht multiple aruments 
+ 
+ call:
+ --------------------------------------------------------------
+ var  obj = {num:2}; 
+ var addToThis = function(a){
+ 
+	return this.num+a;
+ } 
+ console.log(addToThis.call(obj, 3)); //5
+ 
+ 
+ var  obj = {num:2}; 
+ var addToThis = function(a, b, c){
+ 
+	return this.num+a +b +c;
+ } 
+ console.log(addToThis.call(obj, 1,2 ,3)); //8
+ 
+ --------------------------------------------------------------
+ apply: 
+ var arr = [1, 2, 3]
+ console.log(addToThis.call(obj, arr)); //8
+ 
+ --------------------------------------------------------------
+ Bind:
+ var  obj = {num:2}; ; 
+ var addToThis = function(a){ 
+	return this.num+a;
+ } 
+ var bound = addToThis.bind(obj); 
+ console.dir(bound(3)); //5 
+ --------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+

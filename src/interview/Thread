@@ -1,0 +1,136 @@
+
+All about Java threa:
+  https://www.codejava.net/java-core/concurrency/java-concurrent-collection-copyonwritearraylist-examples
+
+multipe way for creting thread:
+  1. extending the thread class
+  2. implement runnable interface: A Runnable, however, does not return a result and cannot throw a checked exception.
+  3. implement callable interface: A Callable, however, does return a result and throw a checked exception.
+
+
+#Time-slicing:
+Thread sharing among the multipe code is called time slicing.
+
+#Thread life cycle:
+New - before calling start method
+Runnable - after calling start method
+Waiting - wait() and sleep() (back to runnable)
+dead - finishes
+
+#Join: 
+It is uedd mthod to join child task with maind thread.
+
+#Volatile:
+Cache is verey near to cpu. 
+Volatile data will present in the RAM instead of cache. 
+It is common to all thread.
+But will reduce the performance.
+
+
+#DeadLock:
+Waiting for two or more process is for each others.
+It will happen in directed graph.
+
+#Livelock:
+It is busy to server each other.
+
+#Synchronized:
+It will allow one thread to access the method.
+
+#Syncronized block:
+Object lock1 = new Object();
+Object lock2 = new Object();
+
+
+Daemon Thread:
+  Daemon threads have lower priority than normal ones, so they are used for running background services that serve user threads. An example of daemon thread in the JVM is the garbage collector thread that runs silently in the background to free unused memory. You can make a thread daemon by calling Thread.setDaemon(true) and check daemon status by using isDaemon().
+
+ThreadGroup:
+  ThreadGroup is a convenient class that groups some related threads as a single unit and allows you to perform some operations on a group as a whole, rather than with each separate thread.
+  Thread(ThreadGroup group, String name)  
+  Thread(ThreadGroup group, Runnable target)
+  Thread(ThreadGroup group, Runnable target, String name)
+
+- Deadlock:  All threads are blocked, the program hangs forever.
+
+- Livelock: No threads blocked but they run into infinite loops. The program is still running but unable to make further progress.
+
+- Starvation: Only one thread is running, and other threads are waiting forever.
+
+Deadlock:
+  Deadlock describes a situation where two more threads are blocked because of waiting for each other forever. 
+
+  public class Business {
+ 
+    private Object lock1 = new Object();
+    private Object lock2 = new Object();
+ 
+    public void foo() {
+        synchronized (lock1) {
+            synchronized (lock2) {
+                System.out.println("foo");
+            }
+        }
+    }
+ 
+    public void bar() {
+        synchronized (lock2) {
+            synchronized (lock1) {
+                System.out.println("bar");
+            }
+        }
+    }
+}
+
+public class BusinessTest1 {
+    public static void main(String[] args) {
+        Business business = new Business();
+ 
+        Thread t1 = new Thread(new Runnable() {
+            public void run() {
+                business.foo();
+            }
+        });
+ 
+        t1.start();
+ 
+        Thread t2 = new Thread(new Runnable() {
+            public void run() {
+                business.bar();
+            }
+        });
+ 
+        t2.start();
+    }
+}
+Avoiding  deadlock:
+public void foo() {
+    synchronized (lock1) {
+        synchronized (lock2) {
+            System.out.println("foo");
+        }
+    }
+}
+ 
+public void bar() {
+    synchronized (lock1) {
+        synchronized (lock2) {
+            System.out.println("bar");
+        }
+    }
+}
+
+Livelock:
+  Livelock describes situation where two threads are busy responding to actions of each other. 
+
+  Let’s see an example: a criminal kidnaps a hostage and he asks for ransom in order to release the hostage. A police agrees to give the criminal the money he wants once the hostage is released. The criminal releases the hostage only when he gets the money. Both are waiting for each other to act first, hence livelock.
+
+
+
+
+
+
+
+
+
+

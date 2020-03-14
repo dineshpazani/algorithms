@@ -1,0 +1,32 @@
+
+#Priority Queue:
+
+#Queue using stack:
+user two stack to get queue properties
+
+#Tree:
+
+#Binary search tree:
+
+
+#AVL Tree:
+
+
+#Red-black Tree:
+
+
+#B-Tree:
+
+
+#Graph:
+
+#Dijkstra:
+
+#Bellman Ford:
+It is slower than Dijkstra
+It can be calculated negative weight
+Run time O(V*E)
+
+
+#Disjoint set:
+-Representative

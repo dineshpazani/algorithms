@@ -1,0 +1,58 @@
+
+
+#Git submodules:
+
+
+#Clone sub moudles:
+git submodule add repo url
+
+
+#Checkout branch in all submodule : https://stackoverflow.com/questions/1777854/how-can-i-specify-a-branch-tag-when-adding-a-git-submodule
+git submodule foreach -q --recursive 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo master)'
+
+#Clone old branch to new branch: (ex: master to develop)
+git submodule foreach -q --recursive 'git checkout -b $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo develop) master'
+
+git submodule foreach 'git submodule set-branch --branch aBranch -- ${sm_path}'
+git submodule foreach 'git submodule set-branch --default -- ${sm_path}'
+
+
+#push new branch:
+git push --set-upstream origin develop
+
+#Git clone new branch:
+git checkout -b newbranch oldbranch
+
+#git clone and merge:
+1. git clone repo url.
+2. cd rdpv-ericsson
+3. git checkout --track -b develop
+4. git pull origin develop
+5. git remote add upstream repo url
+6. git fetch upstream
+7. git checkout --track -b fix/settings upstream/develop
+8. git pull -r upstream develop
+10.Files Changes
+11.git commit -m "message" file1 file2 ...
+12.git push origin HEAD -f
+---------------
+Merge two branch: 
+git checkout target
+git pull origin target
+git merge --no-ff develop
+git push origin target
+
+-----------------
+Develop to Master Merge : 
+git checkout master
+git pull origin master
+git merge --no-ff  develop
+git push origin master
+
+---------------------
+delete last commit on remote repo
+git reset HEAD^
+
+#Merge config:
+git mergetool --tool-help
+git config merge.tool vimdiff 

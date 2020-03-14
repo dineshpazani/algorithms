@@ -1,0 +1,37 @@
+
+
+Spark:
+  create RDD:
+    create SC (Spark context):
+      val intArr = Array(1,2,3,4,5,6,7,8,9,0)
+      val rdd = sc.parallelize(intArr)       -> create RDD
+      val rdd = sc.parallelize(intArr, 6)    -> create RDD with partitions 
+      rdd.take(3)                           -> will return the 3 array of elements 
+      rdd.collect()                         -> it will take all elements 
+      rdd.collect().foreach(println)        -> it will print all elements in the RDD
+      rdd.partitions.size()                 -> to check no of partitions 
+
+    create RDD from file:
+      val fileRDD = sc.textFile("file path")
+      val fileRDD = sc.textFile("file path", 10) with partiotions 
+
+  RDD Transformations: Lazy evalutaions 
+
+      by RDD:
+        val intArr = Array(1,2,3,4,5,6,7,8,9,0)
+        val rdd = sc.parallelize(intArr) 
+        val rddFilter = rdd.filter(line => line.split(","))
+
+      by Map: return colection of collections 
+        val intArr = Array(1,2,3,4,5,6,7,8,9,0)
+        val rdd = sc.parallelize(intArr) 
+        val rddFilter = rdd.map(line => line.split(","))
+
+      by Float Map: return float of collection
+        val intArr = Array(1,2,3,4,5,6,7,8,9,0)
+        val rdd = sc.parallelize(intArr) 
+        val rddFilter = rdd.FloatMap(line => line.split(","))
+
+
+
+

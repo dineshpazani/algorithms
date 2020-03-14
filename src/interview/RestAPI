@@ -1,0 +1,12 @@
+
+Idempotent REST APIs:
+  An idempotent HTTP method is an HTTP method that can be called many times without different outcomes. It would not matter if the method is called only once, or ten times over. The result should be the same. It essentially means that the result of a successfully performed request is independent of the number of times it is executed. For example, in arithmetic, adding zero to a number is idempotent operation.
+
+
+    GET: is both Safe and Idempotent. 
+    HEAD: is also both safe and idempotent.  The HEAD method is identical to the GET method except that the server must not return the message body in the response. The HEAD request may be executed before loading a large resource, to check resource size, validity, accessibility, and recent modification. 
+    OPTIONS: is also safe and idempotent. Basically it is to return information about an endpoint. It will return all metadata needed for the request and the response to help you with building your API call.
+    PUT: is not safe but idempotent.
+    DELETE: is not safe but idempotent.
+    POST: is neither safe nor idempotent.
+    PATCH: is also neither safe nor idempotent. When a client needs to replace an existing Resource entirely, they can use PUT. When they're doing a partial update, they can use HTTP PATCH.

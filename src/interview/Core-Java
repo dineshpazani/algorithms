@@ -1,0 +1,179 @@
+#Java Interview:
+
+#Design patterns:
+
+#Creational
+Singletons
+Protoype
+Factory
+Builder 
+
+#Behavioral:
+Iterator
+strategy design pattern
+
+#Strutural:
+
+
+#Class Loader
+System
+Extenstion
+Boostrap
+
+#Oops concept:
+Abstraction : Abstract
+Inheritance -interface
+polymorphism - method overloading and overriding 
+Encapsulations - private, public, protected
+Composition - IS-A relationship
+Association - 
+Aggregation - HS- A relationship
+Exception - checked exception and unchecked exception  https://www.codejava.net/java-core/exception/java-checked-and-unchecked-exceptions
+
+
+#can static block throw exception in java?
+The static block must not throw checked exceptions but still allows unchecked/runtime-exceptions to be thrown.
+But according to above reasons you would be unable to handle these either.
+
+#what is difference between static and init block in java ?
+The static block is only loaded when the class object is created by the
+JVM for the 1st time whereas init {} block is loaded every time class object is created. Also first the static block is loaded then the init block.
+
+#what is difference iterator access and index access?
+
+# Is java pass by value or pass by reference?
+Primitive/wrapper pass by value and object like map/list classes pass by reference
+
+#static variable vs non static variables:
+Static variable loaded when class is load but non static variable loaded only constructor is called.
+
+difference between serializable and externalizable:
+    Serialization helps in serializing complete object whereas with Externalization we can serialize either complete or partial object
+Serialize is marker interface
+externalization have two method: writeExternal and readExternal
+Compiler generated serialVersionUID: is highly complex as it uses combination of class name and properties to generate this unique Id
+
+#What is Casting in Java?
+Object of one particular type and “turning it into” another Object type. This process is called casting a variable.
+
+#difference between char array and string in java?
+String is immutable so getting memory dumped
+
+#Can an abstract class have a constructor?
+Yes, it have own members to initiate
+
+#Difference between Java Heap Space and Stack Memory
+Heap memory is used by all the parts of the application whereas stack memory is used only by one thread of execution.
+Whenever an object is created, it’s always stored in the Heap space and stack memory contains the reference to it.
+Stack memory only contains local primitive variables and reference variables to objects in heap space.
+Objects stored in the heap are globally accessible whereas stack memory can’t be accessed by other threads.
+Memory management in stack is done in LIFO manner whereas it’s more complex in Heap memory because it’s used globally.
+Heap memory is divided into Young-Generation, Old-Generation etc, more details at Java Garbage Collection.
+Stack memory is short-lived whereas heap memory lives from the start till the end of application execution.
+We can use -Xms and -Xmx JVM option to define the startup size and maximum size of heap memory. We can use -Xss to define the stack memory size.
+When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
+Stack memory size is very less when compared to Heap memory. Because of simplicity in memory allocation (LIFO), stack memory is very fast when compared to heap memory.
+
+#Rule for overloading and overriding:
+Overloading:
+change method signature
+#number of arguments, type of arguments and order of arguments 
+public class DemoClass {
+    // Overloaded method
+    public Integer sum(Integer a, Integer b) {
+        return a + b;
+    }
+ 
+    // Overloading method
+    public Integer sum(Float a, Integer b) {  //Valid
+        return null;
+    }
+}
+#changing the return type of method does not amount to method overloading.
+public class DemoClass {
+    // Overloaded method
+    public Integer sum(Integer a, Integer b) {
+        return a + b;
+    }
+ 
+    // Overloading method
+    public Float sum(Integer a, Integer b) {     //Not valid; Compile time error
+        return null;
+    }
+}
+
+ #no effect at all on method loading.
+ public class DemoClass {
+    // Overloaded method
+    public Integer sum(Integer a, Integer b) throws NullPointerException{
+        return a + b;
+    }
+ 
+    // Overloading method
+    public Integer sum(Integer a, Integer b) throws Exception{  //Not valid; Compile time error
+        return null;
+    }
+}
+
+#Overriding:
+argument list in overridden and overriding methods must be exactly same
+
+#return type of overriding method can be child class of return type declared in overridden method.
+public class SuperClass {
+    //Overriden method
+    public Number sum(Integer a, Integer b) {
+        return a + b;
+    }
+}
+ 
+class SubClass extends SuperClass {
+    //Overriding method
+    @Override
+    public Integer sum(Integer a, Integer b) {      //Integer extends Number; so it's valid
+        return a + b;
+    }
+}
+
+#private, static and final methods can not be overridden 
+
+Overriding method can not throw checked Exception higher in hierarchy
+overriding method can not reduce the access scope of overridden method. 
+
+
+#Spring pool:
+String a = new String("abc"); 2 object will create. 1 in heap memory and another one in string reference pool
+String a = "abc"; only one object will create in string reference pool
+String b = new String("abc"); now 3 object only available in the JVM
+
+
+#Garbage cpllection:
+finalize is method in object. It will involve before an object eligible by gc; 
+
+System.gc(); It system class to invoke externally. We can invoke external but no garantee to move to gc.
+
+#Eligible for GC:
+
+A a = new A();
+a= null; eligible
+a = b; eligible
+
+What are the advantages of Java streams?:
+No storage. A Stream is not a data structure, but only a view of a data source, which can be an array, a Java container or an I/O channel.
+A Stream is functional in nature. Any modifications to a Stream will not change the data sources. For example, filtering a Stream does not delete filtered elements, 
+but generates a new Stream that does not contain filtered elements.
+Lazy execution. Operations on a Stream will not be executed immediately. They will be executed only when users really need results.
+Consumable. The elements of a stream are only visited once during the life of a stream. Once traversed, a Stream is invalidated, just like a container iterator. 
+You have to regenerate a new Stream if you want to traverse the Stream again.
+
+Volatile:
+    Volatile Keyword in Java. Volatile keyword is used to modify the value of a variable by different threads. It is also used to make classes thread safe. It means that multiple threads can use a method and instance of the classes at the same time without any problem.
+transient:
+
+
+
+
+
+
+
+
+
