@@ -1,6 +1,6 @@
 package com.logicsinjava;
 
-public class Matrix90Rotation {
+public class Matrix90Rotation1 {
 
 	public static void main(String[] args) {
 
@@ -14,7 +14,7 @@ public class Matrix90Rotation {
 		 for (int i = 0; i < m.length; i++) {
 				for (int j = 0; j < m[i].length; j++) {
 
-					System.out.print(m[i][j]);
+					System.out.print(m[i][j]+" ");
 
 				}
 				System.out.println();
@@ -33,7 +33,7 @@ public class Matrix90Rotation {
 		for (int i = 0; i < temp.length; i++) {
 			for (int j = 0; j < temp[i].length; j++) {
 
-				System.out.print(temp[i][j]);
+				System.out.print(temp[i][j]+" ");
 
 			}
 			System.out.println();

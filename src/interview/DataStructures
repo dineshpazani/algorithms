@@ -1,4 +1,12 @@
 
+
+Linked List:
+find if it have circular:
+  hashing
+  Mark visited method (it required modify the mode)
+  Floyd’s Cycle-Finding Algorithm (Slow and fast pointer)
+
+
 #Priority Queue:
 
 #Queue using stack:

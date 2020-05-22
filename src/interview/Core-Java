@@ -171,9 +171,41 @@ transient:
 
 
 
+A functional interface has only one abstract method but it can have multiple default methods.
+@FunctionalInterface annotation is used to ensure an interface can’t have more than one abstract method. The use of this annotation is optional.
+The java.util.function package contains many builtin functional interfaces in Java 8.
 
 
 
+
+createing custom exception:
+    Create a new class whose name should end with Exception like ClassNameException. This is a convention to differentiate an exception class from regular ones.
+    Make the class extends one of the exceptions which are subtypes of the java.lang.Exception class. Generally, a custom exception class always extends directly from the Exception class.
+    Create a constructor with a String parameter which is the detail message of the exception. In this constructor, simply call the super constructor and pass the message.
+
+
+Difference between == and .equals() method in Java:
+    Main difference between .equals() method and == operator is that one is method and other is operator.
+We can use == operators for reference comparison (address comparison) and .equals() method for content comparison. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of values in the objects.
+If a class does not override the equals method, then by default it uses equals(Object o) method of the closest parent class that has overridden this method. See this for detail
+
+
+step for create immutable objects:    
+
+    Declare the class as final so it can’t be extended.
+    Make all fields private so that direct access is not allowed.
+    Don’t provide setter methods for variables
+    Make all mutable fields final so that it’s value can be assigned only once.
+    Initialize all the fields via a constructor performing deep copy.
+    Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+
+Java stream api:
+    https://www.journaldev.com/2774/java-8-stream#stream-collections
+
+    We can use Stream.generate() and Stream.iterate() methods to create Stream.
+
+    Stream<String> stream1 = Stream.generate(() -> {return "abc";});
+    Stream<String> stream2 = Stream.iterate("abc", (i) -> i);
 
 
 

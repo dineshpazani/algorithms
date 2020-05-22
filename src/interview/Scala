@@ -1,0 +1,157 @@
+
+
+Higher order fundtion:
+
+
+
+:: cons
+
+Arrays:
+
+  var array = new Array[];
+
+
+
+List: All are same data types
+  Immutable you can't change it.
+  val mylist: List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8)
+    println(0 :: mylist)    
+    println(1 :: Nil)
+    println(mylist.head)
+    println(mylist.tail)
+#Filling the data in the list
+   println(List.fill(5)(2))
+
+#List looping 
+mylist.foreach(sum += _)
+for (l <- mylist) println(l)
+
+
+#Set 
+Unique elements
+mutable set: => scala.collection.mutable.Set(,,,,)
+Immutable set : val set: Set[Int] = Set(2, 5, 2, 3, 7, 7Set
+
+Concat
+set1 ++ set2
+set1.++(set2)
+set intersect:
+set1.&(set2)
+
+
+#Map
+ val map : Map[Int, String] = Map(1 -> "din", 2 -> "paz", 7 -> "kar")    
+    println(map)
+    println(map(2))
+    map.keys.foreach{
+      key => println(key +" "+map(key))
+    }
+    println(map.contains(1))
+#concat map
+map1 ++ map2
+map1.++(map2)
+
+
+Tuples:
+  it can hold diffrent data types and it is immutable and con't change it.
+  Size id fixed.
+  var tuple = (1,2,3,4,5,6, "hello", true, false)
+    var tuple2 = new Tuple9(1,2,3,4,5,6, "hello", true, false)
+    it can hold 1 to 22 elements only
+        println(tuple2._5)
+
+Options:
+Always will return Some() or None   
+
+ var map = Map(1 -> "Tom", 2 -> "Jerry", 3 -> "din")     
+Get actual values map.get(1).get
+println(map.get(1).getOrElse(0))
+
+ var some : Option[Int] = Some(8)
+    
+    println(some.isEmpty)
+
+Map, Flatmap, Flattern and filter:
+
+println(list.map(x => x+2))
+println(list.map(_+2))
+println(list.map(x => "hi "*x))
+println("hello".map(_.toUpper))
+
+Flatmap:
+
+
+Flattern:
+  println(List(List(1,2,3,4,5), List(3,4,5,6,7,8,9)).flatten)
+
+
+
+Reduce, fold or scan:
+
+  println(list.reduceLeft(_+_))
+  println(list.reduceRight(_+_))
+  println(list.reduceLeft((x, y) => x+y))
+
+Fold:
+   println(list.foldLeft(100)(_+_))
+   println(list.scanLeft(100)(_+_))
+
+Classes:
+  class User(var name: String, var age:Int);
+  var user = new User("din", 28);
+
+
+Auxiliary constructors:
+
+        Getter  Setter
+    var yes     yes
+    val yes     no 
+    default no  no
+
+
+class User(private var name: String, var age:Int){
+  
+  def this() {
+    this("Tom", 32)
+  }
+  
+   def this(name: String) {
+    this(name, 32)
+  }
+  
+  
+  def printName(){
+    print(name)
+  }
+}
+
+Inheritance:
+
+  extends, override should mention method or member level. 
+
+Absract class:
+
+
+Lazy Evaluation:
+
+  default is strict 
+
+  use keyword Lazy or call by name
+  ex: lazy val v = 9
+
+
+Trait: implement using "with" keyword. YOu can use multipe "with"
+
+  Scala does not allowed multipe inhertance.
+  One method should be abstract
+
+
+Companion Object:
+
+  Extended from singeton
+  Class name and Object name should be same.
+  To implement factory method.
+  Object take care about objects and class take care about no static class.
+
+
+

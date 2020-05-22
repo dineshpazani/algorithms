@@ -1,4 +1,15 @@
 
+Spark 3 features:
+  Support for python 3
+
+
+Howmany way creating RDD:
+  1. partitions
+  2. CSV files and text file or DB
+  3. From existing RDD
+
+Spark supporting file format:
+  ORC, JSON, parquet ans test file
 
 Spark:
   create RDD:
@@ -33,5 +44,101 @@ Spark:
         val rddFilter = rdd.FloatMap(line => line.split(","))
 
 
+  Load CSV files in RDD:
+    var csvRDD = new SparkContext(sparkconfig).textFile("src/test/resources/train.csv");
 
+    csvRDD.take(10).foreach(println)
+
+  //with out header:
+    var header = csvRDD.first()    
+    var csvRddWithoutHeader = csvRDD.filter(_ != header)    
+    csvRddWithoutHeader.foreach(println)
+    
+   
+  // csv take particular column to rdd:
+   var csvArray = csvRddWithoutHeader.map(line =>{
+     
+     var csvArray = line.split(" ")
+     
+     if(csvArray.length>4)
+       Array(csvArray(0), csvArray(1), csvArray(3)).mkString(" ")
+      else
+        println(csvArray(0))
+     
+   }).take(10).foreach(println)
+  //csvArray.foreach(println)
+
+
+  //Save file in csv:
+    rdd.saveAsTextFile(path)
+
+
+  creating Schema:
+
+
+
+RDD Support action:
+  Transformations -> One RDD to another RDD. Map and filter
+  Actions -> reduce and take -> repeat the value untill getting final result.
+
+Spark code:
+
+  memory management
+  Job scheduling
+  monitoring the jobs,
+  providing fault tolerance.
+
+Hive on Spark:
+
+  hive> set spark.home=/location/to/sparkHome;
+hive> set hive.execution.engine=spark;
+
+Hive supports Spark on YARN mode by default.
+
+Spark eco system:
+  Spark sql,
+  Spark streaming
+  Graphx
+  MLlib,
+  SparkR
+
+
+YARN:
+
+  Yarn is venral ans resource management platform.
+
+Cluster Managers:
+
+  Standalone
+  Apache mesos
+  YARN
+
+
+Broadcast and Accumulators:
+    Using Broadcast Variable- Broadcast variable enhances the efficiency of joins between small and large RDDs.
+    Using Accumulators – Accumulators help update the values of variables in parallel while executing.
+    The most common way is to avoid operations ByKey, repartition or any other operations which trigger shuffles.
+
+
+
+
+Site 1:
+  https://data-flair.training/blogs/apache-spark-interview-questions-answers/
+  https://data-flair.training/blogs/apache-spark-interview-questions/
+  https://data-flair.training/blogs/apache-spark-interview-questions-and-answers/
+
+
+
+
+Data set:
+
+  Dataset[T] -> Dynamically typed collection
+
+  Typed transfermation - return data set
+  Untyped transfermation - return data frame
+
+  Strongly typed
+  Seriazatied and deserialized
+  2x faster ten data frame
+  does not supporting python and R
 
