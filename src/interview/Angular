@@ -1,13 +1,12 @@
 
-#Angular life cycle hook :
-
+Angular life cycle hook :
 ngOnChanges()
 ngOnInit()
 ngDoCheck()
-ngAfterContentInit()
-ngAfterContentChecked()
-ngAfterViewInit()
-ngAfterViewChecked()
+  ngAfterContentInit()
+  ngAfterContentChecked()
+  ngAfterViewInit()
+  ngAfterViewChecked()
 ngOnDestroy()
 
 #Life Cycle of Angular:
@@ -20,7 +19,7 @@ ngOnDestroy()
 # Double curly brackets:
 double curly brackets like {{}} are used form data interpolation in Angular5
 
-#Type of decorators:
+Type of decorators:
 Class Decorators
 Method
 Property
@@ -88,3 +87,36 @@ Template driven form
 
 #Decorators:
 Decorators are functions that adds metadata to class members and functions. It was proposed in ES2016 and implemented in Typescript.
+
+Angular 6 features:
+  RxJS 6.0 :  Observable<number> = of(1, 2).pipe(map(n => n * n));
+
+  Tree Shaking: Unused code is not binded.
+  Bazel Compiler: his compiler only rebuilds what is necessary to build. Since source code changes very often, 
+  it does not make any sense to rebuild the entire application for every little change. 
+  Ivy: New Rendering Engine
+  Bye, Bye Template Element: ng-template
+
+NgModule:
+  NgModules configure the injector and the compiler and help organize related things together.
+
+
+Constructor vs NgInit:
+#Constructor
+The constructor function comes with every class, constructors are not specific to Angular but are concepts derived from Object oriented designs. 
+The constructor creates an instance of the component class.
+
+#OnInit
+The ngOnInit function is one of an Angular component’s life-cycle methods. 
+Life cycle methods (or hooks) in Angular components allow you to run a piece of code at different stages of the life of a component. 
+Unlike the constructor method, ngOnInit method comes from an Angular interface (OnInit) that the component needs to implement in order to use this method. 
+The ngOnInit method is called shortly after the component is created.
+
+Lazy-loading feature modules:
+  By default, NgModules are eagerly loaded, which means that as soon as the app loads, so do all the NgModules, 
+  whether or not they are immediately necessary. For large apps with lots of routes, consider lazy loading—a design 
+  pattern that loads NgModules as needed. Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.
+
+Pure and Impure pipe:
+impure-pipe works for every change in the component
+pure-pipe works only when the component is loaded.

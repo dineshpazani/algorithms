@@ -54,8 +54,11 @@ every function is bind and apply methiod.
  #Call Back:
  
  
- #Closure:
- A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) .
+ Closure:
+Global variables can be made local (private) with closures.
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+A closure is a function having access to the parent scope, even after the parent function has closed.
+
  
  #Higher order function:
  it can be pass function as arrguments and return as function or value.
@@ -112,25 +115,29 @@ every function is bind and apply methiod.
  
  call:
  --------------------------------------------------------------
- var  obj = {num:2}; 
- var addToThis = function(a){
- 
-	return this.num+a;
- } 
- console.log(addToThis.call(obj, 3)); //5
- 
- 
- var  obj = {num:2}; 
- var addToThis = function(a, b, c){
- 
-	return this.num+a +b +c;
- } 
- console.log(addToThis.call(obj, 1,2 ,3)); //8
+The call() method is a predefined JavaScript method.
+With call(), an object can use a method belonging to another object.
+
+  var person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+var person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+var person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+person.fullName.call(person1);  // Will return "John Doe" 
  
  --------------------------------------------------------------
  apply: 
- var arr = [1, 2, 3]
- console.log(addToThis.call(obj, arr)); //8
+The call() method takes arguments separately.
+
+The apply() method takes arguments as an array.
  
  --------------------------------------------------------------
  Bind:
@@ -141,13 +148,125 @@ every function is bind and apply methiod.
  var bound = addToThis.bind(obj); 
  console.dir(bound(3)); //5 
  --------------------------------------------------------------
+ let:
+The let statement allows you to declare a variable with block scope.
+Variables declared with the let keyword can have Block Scope.
+
+Variables declared inside a block {} can not be accessed from outside the block.
+{
+  let a = 10;
+}
+
+Const:
+Variables defined with const behave like let variables, except they cannot be reassigned
+
+Declaring a variable with const is similar to let when it comes to Block Scope.
+
+ var x = 10;
+// Here x is 10
+{
+  const x = 2;
+  // Here x is 2
+}
+// Here x is 10 
+
+
+Error:
+The try statement lets you test a block of code for errors.
+
+The catch statement lets you handle the error.
+
+The throw statement lets you create custom errors.
+
+The finally statement lets you execute code, after try and catch, regardless of the result.
+
+Strict Mode:
+You can use strict mode in all your programs. It helps you to write cleaner code, like preventing you from using undeclared variables.
+
+"use strict" is just a string, so IE 9 will not throw an error even if it does not understand it.
  
  
  
  
  
  
+ _______________________________________________________________________________________________________________________________________
+
  
+ JavaScript:
+ Closure: https://www.w3schools.com/js/js_function_closures.asp
+Histing: https://scotch.io/tutorials/understanding-hoisting-in-javascript
+Strict mode: https://javascript.info/strict-mode
+Object properties & descriptors: https://javascript.info/property-descriptors
+"this" keyword: https://www.geeksforgeeks.org/this-in-javascript/
+Indexed & Keyed collections: http://webmobtuts.com/javascript/javascript-keyed-and-indexed-collections-array-map-and-set/
+Map, reduce & filter: https://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
+Memory management: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+Error handling: https://www.tutorialspoint.com/javascript/javascript_error_handling.htm
+Debugging: https://developers.google.com/web/tools/chrome-devtools/javascript/
+ 
+Object Oriented JavaScript:
+ 
+Basics: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS 
+Abstraction, Encapsulation, Inheritance & Polymorphism: https://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
+Inheritance & prototype  chain: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain 
+SOLID Principals: https://medium.com/@cramirez92/s-o-l-i-d-the-first-5-priciples-of-object-oriented-design-with-javascript-790f6ac9b9fa
+JavaScript Principals Design Patterns: https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know  
+ 
+==============
+ 
+TypeScript:
+ 
+Abstraction, Encapsulation, Inheritance & Polymorphism: https://rachelappel.com/2015/01/02/write-object-oriented-javascript-with-typescript/
+REST, default & optional params: https://howtodoinjava.com/typescript/functions-rest-optional-default-params/
+Overloading: https://www.bennadel.com/blog/3339-using-method-and-function-overloading-in-typescript.htm
+Iterators & decorators: https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html
+Intersections & union types: https://www.typescriptlang.org/docs/handbook/advanced-types.html
+Decorators: https://www.typescriptlang.org/docs/handbook/decorators.html
+ 
+===============
+ 
+Angular:
+ 
+Bootstrapping: https://angular.io/guide/bootstrapping
+Lifecycle hooks: https://www.cuelogic.com/blog/angular-lifecycle
+Routing: https://blog.angularindepth.com/the-three-pillars-of-angular-routing-angular-router-series-introduction-fb34e4e8758e
+Router gaurd: https://codecraft.tv/courses/angular/routing/router-guards/
+Dependency injection (injectors, providers): https://angular.io/guide/dependency-injection
+Forms: https://angular-templates.io/tutorials/about/angular-forms-and-validations
+Directives: https://www.sitepoint.com/practical-guide-angular-directives/
+HostListener & HostBinding: https://codecraft.tv/courses/angular/custom-directives/hostlistener-and-hostbinding/
+Pipe: https://scotch.io/tutorials/create-a-globally-available-custom-pipe-in-angular-2
+Component communications: https://medium.com/@mirokoczka/3-ways-to-communicate-between-angular-components-a1e3f3304ecb
+ViewChildren, ViewChild, ContentChildren & ContentChild: https://medium.com/@tkssharma/understanding-viewchildren-viewchild-contentchildren-and-contentchild-b16c9e0358e 
+Services: https://angular.io/tutorial/toh-pt4
+HTTP Client: https://www.techiediaries.com/angular-http-client/
+Web workers: https://medium.com/@damoresac/using-web-workers-on-angular-6-6fd0490d07b5
+Base project structure & Webpack config: https://jasonwatmore.com/post/2019/04/24/angular-7-tutorial-part-2-create-base-project-structure-webpack-config
+AOT: https://angular.io/guide/aot-compiler
+Unit Tesitng: https://medium.com/@selvarajchinnasamyks/angular-7-unit-testing-97dccfdca900
+Mock backend: https://jasonwatmore.com/post/2019/05/02/angular-7-mock-backend-example-for-backendless-development
+ 
+===============    
+ 
+NgRx:
+ 
+State, actions & reducers: https://dzone.com/articles/managing-state-in-angular-with-ngrxstore
+https://blog.angularindepth.com/ngrx-tips-tricks-69feb20a42a7  
+ 
+===============  
+ 
+More links for in-depth reference:
+ 
+JavaScript:  https://www.w3schools.com/js/
+TypeScript:  https://www.typescriptlang.org/docs/handbook/basic-types.html
+Angular:  https://angular.io/guide/architecture
+Unit Testing:  https://angular.io/guide/testing
+RxJS:  https://rxjs-dev.firebaseapp.com/guide/overview
+NgRx:  https://ngrx.io/guide/store
+ 
+ 
+
  
  
  

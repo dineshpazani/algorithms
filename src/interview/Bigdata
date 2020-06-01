@@ -1,4 +1,11 @@
 
+
+Spark fault tolerance:
+https://techvidvan.com/tutorials/fault-tolerance-in-spark/
+https://www.tutorialkart.com/pdf/apache-spark/spark-add-new-column-to-dataset-example.pdf
+https://www.dezyre.com/article/hadoop-developer-interview-questions-at-top-tech-companies/243
+
+
 Spark 3 features:
   Support for python 3
 
@@ -141,4 +148,6 @@ Data set:
   Seriazatied and deserialized
   2x faster ten data frame
   does not supporting python and R
+
+
 
