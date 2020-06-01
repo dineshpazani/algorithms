@@ -208,6 +208,24 @@ Java stream api:
     Stream<String> stream2 = Stream.iterate("abc", (i) -> i);
 
 
+Type of Garbage Collector to run:
+Option  Description
+-XX:+UseSerialGC    Serial Garbage Collector
+-XX:+UseParallelGC  Parallel Garbage Collector
+-XX:+UseConcMarkSweepGC     CMS Garbage Collector (Concurrent Mark Sweep (CMS) garbage collector)
+-XX:ParallelCMSThreads=     CMS Collector – number of threads to use
+-XX:+UseG1GC    G1 Gargbage Collector
+GC Optimization Options
+Option  Description
+-Xms    Initial heap memory size
+-Xmx    Maximum heap memory size
+-Xmn    Size of Young Generation
+-XX:PermSize    Initial Permanent Generation size
+-XX:MaxPermSize     Maximum Permanent Generation size
+Ex:
+java -Xmx12m -Xms3m -Xmn1m -XX:PermSize=20m -XX:MaxPermSize=20m -XX:+UseSerialGC -jar java-application.jar
+
+
 ________________________________________________________________________________________________________________________________________________________________
 
 Please go through the below reading materials and kindly prepare well before the further rounds of interview. 

@@ -1,0 +1,9 @@
+Left join and Left outer join are same. The only thing is that an extra keyword outer!
+
+Basically Outer join is of three types : 1. Left join 2. Right join 3. Full outer join .
+
+As these are types of outer join we even call them as left outer join and right outer join.
+
+    LEFT JOIN returns all the rows from left table and matched ones from right table.
+    RIGHT JOIN returns all the rows from the right table and matched ones from left table.
+    FULL OUTER JOIN returns unmatched rows from both tables.
